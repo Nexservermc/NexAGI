@@ -2,7 +2,7 @@ name: NexAGI
 main: cn.nex.agi.NexAGI
 version: 2.6.1
 api-version: '1.21'
-author: Chatbox
+author: ships061
 description: NEX AGI 聊天桥 - 公屏喊触发词 + /agi 流式私聊
 commands:
   nexagi:
