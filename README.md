@@ -75,7 +75,7 @@ wiki/            Wiki 源文件（多页面，可直接贴到 GitHub Wiki）
 
 ## 快速开始
 
-1. 按 [wiki/Installation](wiki/Installation) 编译并把 `NexAGI.jar` 放进 `plugins/`
+1. 按 [wiki/Installation](https://github.com/Nexservermc/NexAGI/wiki/Installation) 编译并把 `NexAGI.jar` 放进 `plugins/`
 2. 起中转：`python server/mc_ai_bridge.py`（环境变量见 `server/.env.example`）
 3. 把 `server/mc_mcp_server.py` 注册成你的 Agent 的 MCP 工具
 4. 游戏里 `/agi 在吗`
