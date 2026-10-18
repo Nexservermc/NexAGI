@@ -1,0 +1,23 @@
+name: NexAGI
+main: cn.nex.agi.NexAGI
+version: 2.6.1
+api-version: '1.21'
+author: Chatbox
+description: NEX AGI 聊天桥 - 公屏喊触发词 + /agi 流式私聊
+commands:
+  nexagi:
+    description: NEX AGI 聊天桥管理
+    usage: /nexagi reload
+    aliases: [nagi, luoxic]
+  agi:
+    description: 直接私聊跟 NEX AGI 说话（不走公屏）
+    usage: /agi <在此输入聊天内容>
+    aliases: [ai, nxai]
+    permission: nexagi.ai
+permissions:
+  nexagi.admin:
+    description: 管理/重载权限
+    default: op
+  nexagi.ai:
+    description: 使用 /agi 私聊跟 AI 对话
+    default: true
