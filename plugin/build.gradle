@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+group = 'cn.nex.agi'
+version = '2.1.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+}
+
+dependencies {
+    // 换成你服务器实际使用的 Paper 版本；使用 Leaf/Purpur 等分支时同样可用 API
+    // 例如 Leaf 用户可以直接指向本地 libraries 里的 leaf-api jar：
+    //   compileOnly files('libs/leaf-api-1.21.11-R0.1-SNAPSHOT.jar')
+    compileOnly 'io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+processResources {
+    // plugin.yml / config.yml / lang.yml 原样打进 jar，编码为 UTF-8
+    filteringCharset = 'UTF-8'
+}
+
+jar {
+    archiveFileName = "NexAGI-${version}.jar"
+}

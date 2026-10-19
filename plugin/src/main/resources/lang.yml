@@ -1,0 +1,70 @@
+# ============================================================
+# NexAGI 语言文件 —— 插件所有输出给玩家看的文字都在这里
+#   支持 & 与 § 两种颜色码
+#   {xxx} 是占位符，别删掉花括号里的名字
+# 改完执行 /nexagi reload 即可生效，不用重启服务器
+# ============================================================
+
+# ---- 公屏说话（AI 调 mc_say 时）----
+broadcast-format: "&6[NEX AGI] &f"
+console-format: "[NEX AGI] {text}"
+
+# ---- /agi 私聊 ----
+# 回答的前缀（橙色，只有提问的玩家看得到）
+private-format: "&6=[NEXAGI]= &f"
+# 玩家发出提问后的回显
+echo-format: "&7[你 -> NEX AGI] &f{text}"
+# 流式输出时 action bar 上的前缀，{text} = 已生成的文字
+stream-format: "&f✦ &7{text}"
+# 模型没给出内容时的兜底回复
+empty-answer: "（我这会儿没想出要说什么）"
+# 连不上中转时的兜底回复
+bridge-down: "（连不上中转，我现在说不出话）"
+
+# ---- 等待动画（action bar）----
+# 亮蓝星号 + 文字 + 每 0.3 秒长一个的点号，颜色是一道缓慢扫过的光带
+# 前面的标记（静态，亮蓝星星）
+thinking-prefix: "&9✦ "
+# 中间的文字（点号在下面配）
+thinking-text: "thinkink"
+# 点号循环：从 0 个点长到 9 个点，每 0.3 秒换一次
+thinking-dots:
+  - ""
+  - "."
+  - ".."
+  - "..."
+  - "...."
+  - "....."
+  - "......"
+  - "......."
+  - "........"
+  - "........."
+# 点号切换间隔（毫秒）；300ms 在 stream-tick-period=2 下就是每 3 帧长一个点
+thinking-dot-interval-ms: 300
+# 渐变色调：白 -> 亮蓝 -> 深而饱的蓝 -> 白（HSV 插值，全程锁蓝色相，不会发灰）
+thinking-colors:
+  - "#FFFFFF"
+  - "#2E5BFF"
+  - "#00238C"
+  - "#FFFFFF"
+# 备用：把 thinking-text 留空 "" 就用下面这几帧轮流显示（支持 & 颜色码）
+thinking-frames:
+  - "&f✦ &7thinkink."
+  - "&f✧ &7thinkink.."
+  - "&f✦ &7thinkink..."
+
+# ---- /agi 的 Tab 提示 ----
+tab-hint: "<在此输入聊天内容>"
+hint-only: "&e在 /agi 后面直接写你想说的话，例如：&f/agi 在吗"
+
+# ---- 权限与错误提示 ----
+player-only: "&c这条指令只能在游戏里用"
+no-permission: "&c你没有使用 NEX AGI 的权限"
+no-admin: "&c没有权限"
+
+# ---- /nexagi 管理指令 ----
+admin-usage: "&e用法: /nexagi reload | /nexagi say <内容> | /nexagi thinktest"
+reload-done: "&a已重载：实例={instance} 端口={port} 触发词={trigger}"
+reload-hint: "&a私聊指令 /agi 权限节点 nexagi.ai（默认全部玩家可用）"
+# 控制台里记录 AI 执行的指令
+command-console: "§8[NEX AGI 执行] /{cmd} （由 {player} 请求）"
